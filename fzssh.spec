@@ -1,3 +1,7 @@
+%define api 9
+
+%define libname		%mklibname fzssh
+%define develname	%mklibname fzssh -d
 
 Summary:	fzssh is a SSH/SFTP library based on libfilezilla
 Name:		fzssh
@@ -24,6 +28,24 @@ the GNU Affero General Public License as published by the Free Software
 Foundation, either version 3 of the License, or (at your option) any later
 version, see the accompanying agpl3.txt for the full terms.
 
+%package -n	%{libname}
+Summary:	fzssh is a SSH/SFTP library based on libfilezilla
+Group:		System/Libraries
+Provides:  fzssh = %{version}-%{release}
+
+%description -n	%{libname}
+fzssh is a SSH/SFTP library based on libfilezilla.
+
+%package -n	%{develname}
+Summary:	Development package for %{name}
+Group:		Development/C++
+Requires:	%{libname} = %{version}-%{release}
+Provides:  fzssh-DEVEL = %{version}-%{release}
+
+%description -n	%{develname}
+Header files for development with %{name}.
+
+
 %prep
 %autosetup -p1
 
@@ -34,4 +56,14 @@ version, see the accompanying agpl3.txt for the full terms.
 %install
 %meson_install
 
-%files
+%files -n %{libname}
+%{_libdir}/libfzssh.so.%{api}.*
+%{_libdir}/libfzssh-crypt.so.%{api}.*
+%{_libdir}/libfzssh-client.so.%{api}.*
+
+%files -n %{develname}
+%{_libdir}/libfzssh-client.so
+%{_libdir}/libfzssh-crypt.so
+%{_libdir}/libfzssh.so
+%{_libdir}/pkgconfig/libfzssh-client.pc
+%{_includedir}/fzssh/
