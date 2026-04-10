@@ -8,6 +8,7 @@ License:	AGPL3
 Url:		https://filezilla-project.org/
 Source0:	https://dl1.cdn.filezilla-project.org/fzssh/fzssh-%{version}.tar.xz
 
+BuildRequires:  meson
 BuildRequires:  pkgconfig(gmp)
 BuildRequires:	pkgconfig(gnutls)
 BuildRequires:  pkgconfig(nettle)
