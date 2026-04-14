@@ -1,4 +1,4 @@
-%define api 9
+%define api 10
 
 %define libname		%mklibname fzssh
 %define develname	%mklibname fzssh -d
