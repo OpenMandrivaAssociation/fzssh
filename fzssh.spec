@@ -5,7 +5,7 @@
 
 Summary:	fzssh is a SSH/SFTP library based on libfilezilla
 Name:		fzssh
-Version:	1.1.10
+Version:	1.2.0
 Release:	1
 Group:		Networking/File transfer
 License:	AGPL3
